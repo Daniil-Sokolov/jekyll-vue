@@ -1,0 +1,30 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }}</title>
+  <link rel="stylesheet" href="{{site.baseurl}}/dist/style.css">
+  <meta name="description" content="{% if page.description %}{{page.description}}{% else %}{{site.description}}{% endif%}" />
+  <meta name="author" content="David Egan" />
+  <link rel="author" href="{{site.baseurl}}/humans.txt"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{site.baseurl}}/feed.xml" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/resources/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  {% if page.noToc == true %}
+  <script>var noToc = true</script>
+  {% endif %}
+  <!-- <script src="{{site.baseurl}}/resources/js/toc.js"></script> -->
+  {% if page.highlight == true %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/solarized-dark.min.css" media="screen" title="no title" charset="utf-8">
+  {% endif %}
+  {% if site.production == true %}
+  <!-- THIS IS PROD -->
+  <!-- <script src="{{site.baseurl}}/resources/js/cw-dev-notes.min.js"></script> -->
+  {% else %}
+  <!-- THIS IS DEV -->
+  <!-- <script src="{{site.baseurl}}/resources/js/cw-dev-notes.js"></script> -->
+  {% endif %}
+  <link rel="stylesheet" href="{{site.baseurl}}/resources/fontello/css/fontello.css">
+  <link rel="stylesheet" href="{{site.baseurl}}/resources/fontello/css/animation.css">
+</head>

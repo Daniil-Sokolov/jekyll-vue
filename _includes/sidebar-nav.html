@@ -1,0 +1,13 @@
+<h2>Categories</h2>
+<a href="{{site.baseurl}}/categories">Posts listing by category</a>
+<hr>
+<h3>Recent Posts</h3>
+<ul class="posts">
+  {% for post in site.posts limit:10 %}
+  <li>
+    <a href="{{site.baseurl}}{{ post.url }}">
+      {{ post.title }}</a>
+    </li>
+    {% endfor %}
+    <li><a href="{{site.baseurl}}/all-posts">All Posts</a></li>
+    </ul>

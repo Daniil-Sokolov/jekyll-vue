@@ -1,0 +1,28 @@
+---
+layout: page
+chunks: 5
+---
+{% assign categories = site.categories | sort %}
+{{ content }}
+<section>
+  <table>
+      {% for category in categories %}
+      {% assign loopchunker = forloop.index | modulo: layout.chunks %}
+        {% if loopchunker == 1 or forloop.first %}
+        <tr>
+            <td><a href="{{ site.baseurl }}{{ site.category_dir}}/{{category[0] | slugify }}">{{category[0]}}</a></td>
+        {% elsif loopchunker == 0 or forloop.last %}
+            <td><a href="{{ site.baseurl }}{{ site.category_dir}}/{{category[0] | slugify }}">{{category[0]}}</a></td>
+        </tr>
+        {% else %}
+          <td><a href="{{ site.baseurl }}{{ site.category_dir}}/{{category[0] | slugify }}">{{category[0]}}</a></td>
+        {% endif %}
+      {% endfor %}
+  </table>
+</section>
+<h3>Categories</h3>
+<ul>
+  {% for category in categories %}
+    <li><a href="{{ site.baseurl }}{{ site.category_dir}}/{{category[0] | slugify }}">{{category[0]}}</a></li>
+  {% endfor %}
+</ul>

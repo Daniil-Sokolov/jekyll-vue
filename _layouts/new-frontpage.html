@@ -1,0 +1,19 @@
+---
+layout: default-sidenav
+---
+{{ content }}
+<hr>
+<h3>Highlighted Posts</h3>
+{% assign posts = site.posts | where: "showOnFront", "true" %}
+{% for post in posts limit:15 %}
+  <div class="box">
+    <h2 id="{{ post.title | slugify }}"><a href="{{site.baseurl}}{{ post.url }}">
+    {{ post.title }}</a></h2>
+    <span><i class="icon-clock"></i></span><span>{{ post.date | date_to_string }}</span>
+    <br>
+    <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+    <p>
+    <a href="{{site.baseurl}}{{ post.url }}" class="btn ghost">Read More&nbsp;&raquo;</a>
+    </p>
+  </div>
+{% endfor %}

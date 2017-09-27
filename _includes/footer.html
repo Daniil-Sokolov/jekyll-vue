@@ -1,0 +1,23 @@
+<footer class="main">
+  <a class="navbar-item" href="https://carawebs.com">
+    <img src="{{ site.baseurl }}/resources/img/carawebs-icon.svg" alt="Carawebs" width="40" height="40"> Carawebs
+  </a>
+    <p>&copy; <time>{{ 'now' | date: "%Y" }}</time> {{ site.author }}</p>
+    <p>This website is built with <a href="https://jekyllrb.com/">Jekyll</a>, the static website generator.</p>
+    <a href="#top" class="go-top btn" title="Go to the top of the page">Go to the top of the page</a>
+    <div id="float-toc"></div>
+
+    {% if site.production == true %}
+    <!-- THIS IS PROD -->
+    {% if page.title == "Contact" %}
+    <!-- Build a map? -->
+    {% endif %}
+    {% else %}
+{% if page.highlight %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endif %}
+{% endif %}
+{% include disqus.html %}
+</footer>
+<script type="text/javascript" src="{{site.baseurl}}/dist/bundle.js"></script>

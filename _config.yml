@@ -1,0 +1,42 @@
+name: Jekyll Vue
+description: Jekyll with Vue, Webpack and Bulma.
+author: David Egan
+author_email: you@example.com
+category_dir: "/categories" # The directory for category index pages.
+url: https://github.com/DavidCWebs/jekyll-vue # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
+baseurl: ''
+disqusRef: # disqus-ref-here
+gems: [jekyll-gist]
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /:year/:month/:title/
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [node_modules, bower_components, Gruntfile.js, HINTGruntfile.js, bower.json, package.json, readme.md]
+
+# Page Navigation
+navigable-pages:
+  - title: Home
+    url: /
+  - title: All Posts
+    url: /all-posts
+  - title: Contact
+    url: /contact
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      author: David Egan
+
+# Images. See: https://github.com/robwierzbowski/jekyll-image-tag
+image:
+  source: resources/img
+  output: generated
+  presets:
+    default:
+      attr:
+        class: "img-responsive"

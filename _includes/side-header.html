@@ -1,0 +1,32 @@
+<header id="top" class="menu">
+  <div class="site-introduction">
+    <a href="/"><h1 class="site-title title">{{ site.name }}</h1></a>
+    {% capture home_content %}{% include content/home.md %}{% endcapture %}
+    {{ home_content | markdownify }}
+  </div>
+  <div class="navbar-burger burger" data-target="mainNavMenu" v-on:click="triggerDropdown" v-bind:class="{'is-active': burgerDropdownActive}">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul id="mainNavMenu" class="menu-list" v-bind:class="{'is-active': mainMenuActive}">
+    {% assign currentpage = page.url | downcase | split: '/' %}
+    {% for node in site.navigable-pages %}
+    {% assign currentnode = node.url | downcase | split: '/' %}
+    {% if currentpage == currentnode %}
+    <li>
+      <a class="is-active" href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+    </li>
+    {% else %}
+    <li>
+      <a class="" href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <!-- <a class="navbar-item is-hidden-desktop" href="https://twitter.com/DavidRedBranch" target="_blank">
+    <span class="icon" style="color: #55acee;">
+      <i class="fa fa-twitter"></i>
+    </span>
+  </a> -->
+</header>

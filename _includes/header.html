@@ -1,0 +1,38 @@
+<header id="top" class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://carawebs.com">
+        <img src="{{ site.baseurl }}/resources/img/carawebs-icon.svg" alt="Carawebs" width="40" height="40"> Carawebs
+      </a>
+      <a class="navbar-item is-hidden-desktop" href="#" target="_blank">
+        <span class="icon" style="color: #333;">
+          <i class="fa fa-github"></i>
+        </span>
+      </a>
+      <a class="navbar-item is-hidden-desktop" href="https://twitter.com/DavidRedBranch" target="_blank">
+        <span class="icon" style="color: #55acee;">
+          <i class="fa fa-twitter"></i>
+        </span>
+      </a>
+      <div class="navbar-burger burger" data-target="mainNavMenu" v-on:click="triggerDropdown" v-bind:class="{is-active: burgerDropdownActive}">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+<p>burgerDropdownActive = ${ burgerDropdownActive }</p>
+    <div id="mainNavMenu" class="navbar-menu">
+      <div class="navbar-start">
+        {% assign currentpage = page.url | downcase | split: '/' %}
+        {% for node in site.navigable-pages %}
+        {% assign currentnode = node.url | downcase | split: '/' %}
+        {% if currentpage == currentnode %}
+        <a class="navbar-item is-tab is-active" href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+        {% else %}
+        <a class="navbar-item is-tab" href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </nav>
+</header>
